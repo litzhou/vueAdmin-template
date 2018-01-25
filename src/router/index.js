@@ -30,28 +30,35 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
+      meta: { title: '首页' },
       component: _import('dashboard/index')
     }]
   },
 
   {
-    path: '/example',
+    path: '/system',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/system/table',
+    name: 'System',
+    meta: { title: '系统管理', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: _import('table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '用户管理', icon: 'user' }
+      },
+      {
+        path: 'role',
+        name: 'role',
+        component: _import('system/role/index'),
+        meta: { title: '角色管理', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: _import('tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '菜单管理', icon: 'tree' }
       }
     ]
   },
